@@ -2168,8 +2168,11 @@
                     }
                 ],
                 "responses": {
-                    "201": {
-                        "description": "Created"
+                    "207": {
+                        "description": "Multi-Status",
+                        "schema": {
+                            "$ref": "#/definitions/user.invite.response"
+                        }
                     },
                     "400": {
                         "description": "Bad Request",
