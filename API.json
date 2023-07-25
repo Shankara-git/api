@@ -3,7 +3,7 @@
     "info": {
         "description": "Kochava IAM API",
         "title": "Kochava IAM API",
-        "version": "1.0"
+        "version": "1.2"
     },
     "host": "localhost:8080",
     "basePath": "/service/",
@@ -1478,6 +1478,300 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_id}/team": {
+            "get": {
+                "description": "This endpoint is used to get list of user and user-group details of an organization.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Get a list of user and user-group details of an organization",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["INVOKED", "PENDING", "ACCEPTED", "REJECTED", "EXPIRED"],
+                        "description": "The status of the invitation.",
+                        "name": "status",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/team.list"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_id}/workspaces/{workspace_id}/team": {
+            "get": {
+                "description": "This endpoint is used to get list of user and user-group details of a workspace.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Get a list of user and user-group details of a workspace",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Workspace ID",
+                        "name": "workspace_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["INVOKED", "PENDING", "ACCEPTED", "REJECTED", "EXPIRED"],
+                        "description": "The status of the invitation.",
+                        "name": "status",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/team.list"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_id}/team/delete": {
+            "post": {
+                "description": "This endpoint is used to delete a list of users and user groups in the organization team.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Delete a list of users and user groups in the organization team",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "The request body includes a list of users IDs and user groups IDs that are being deleted.",
+                        "name": "team_delete",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/team.delete.list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "207": {
+                        "description": "Multi-Status",
+                        "schema": {
+                            "$ref": "#/definitions/team.multi.status.response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_id}/workspaces/{workspace_id}/team/delete": {
+            "post": {
+                "description": "This endpoint is used to delete a list of users and user groups in the workspace team.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Delete a list of users and user groups in the workspace team",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Workspace ID",
+                        "name": "workspace_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "The request body includes a list of users IDs and user groups IDs that are being deleted.",
+                        "name": "team_delete",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/team.delete.list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "207": {
+                        "description": "Multi-Status",
+                        "schema": {
+                            "$ref": "#/definitions/team.multi.status.response"
+                        }
                     },
                     "400": {
                         "description": "Bad Request",
@@ -3372,6 +3666,92 @@
                 }
             }
         },
+        "/organizations/{organization_id}/my-policies": {
+            "get": {
+                "description": "This endpoint is used to retrieve a list of policies of the current user whose role is associate with this organization.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Policy"
+                ],
+                "summary": "Get a list of policies of the current user whose role is associate with this organization",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Page size.",
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 100
+                    },
+                    {
+                        "type": "string",
+                        "description": "Pagination cursor, value represent base64 string.",
+                        "name": "cursor",
+                        "in": "query",
+                        "required": false,
+                        "maxLength": 256
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["after", "before"],
+                        "description": "Pagination direction.",
+                        "name": "direction",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/policy.list"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
         "/organizations/{organization_id}/users/{user_id}/policies": {
             "get": {
                 "description": "This endpoint is used to retrieve a list of policies of the user whose role is associate with this organization.",
@@ -4147,6 +4527,92 @@
                     }
                 }
             }
+        },
+        "/organizations/{organization_id}/acc-mappings": {
+            "get": {
+                "description": "This endpoint is used to retrieve m/OS organization to product account mappings.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Get m/OS organization to product account mappings",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Page size.",
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 100
+                    },
+                    {
+                        "type": "string",
+                        "description": "Pagination cursor, value represent base64 string.",
+                        "name": "cursor",
+                        "in": "query",
+                        "required": false,
+                        "maxLength": 256
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["after", "before"],
+                        "description": "Pagination direction.",
+                        "name": "direction",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/acc_mappings.response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -4458,6 +4924,126 @@
                 }
             }
         },
+        "user.traits": {
+            "type": "object",
+            "properties": {
+                "meta_data": {
+                    "type": "string",
+                    "format": "json",
+                    "description": "The meta data of the user, example: \"meta_data\": \"{\"avatar\": \"string\"}\""
+                },
+                "departments": {
+                    "description": "List all the departments.",
+                    "$ref": "#/definitions/department.list"
+                }
+            }
+        },
+        "team.list": {
+            "type": "object",
+            "properties": {
+                "total_count": {
+                    "type": "integer",
+                    "description": "The number of user or user group details included in the response."
+                },
+                "prev_cursor": {
+                    "type": "string",
+                    "description": "The previous cursor used for backward pagination, omittable."
+                },
+                "next_cursor": {
+                    "type": "string",
+                    "description": "The next cursor used for forward pagination, omittable."
+                },
+                "team": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/team.response"
+                    }
+                }
+            }
+        },
+        "team.response": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The generated unique ID for the user or user group."
+                },
+                "is_user": {
+                    "type": "boolean",
+                    "description": "Response contains user or user group details. When true, it means user details, and when false, it means user group details."
+                },
+                "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "The email address of the user or user group."
+                },
+                "user_first_name": {
+                    "type": "string",
+                    "description": "The first name of the user."
+                },
+                "user_last_name": {
+                    "type": "string",
+                    "description": "The last name of the user."
+                },
+                "user_display_name": {
+                    "type": "string",
+                    "description": "The display name of the user."
+                },
+                "user_group_name": {
+                    "type": "string",
+                    "description": "The name of the user group."
+                },
+                "traits": {
+                    "description": "The user or user group traits.",
+                    "$ref": "#/definitions/user.traits"
+                },
+                "created_time": {
+                    "type": "string",
+                    "description": "The creation time of the user or user group details, expressed as a timestamp in UTC. For example: \"2014-10-02T15:01:23Z\"."
+                },
+                "updated_time": {
+                    "type": "string",
+                    "description": "The timestamp in UTC indicating the most recent modification time of the user or user group details. For example: \"2014-10-02T15:01:23Z\"."
+                },
+                "invitation_status": {
+                    "enum": ["INVOKED", "PENDING", "ACCEPTED", "REJECTED", "EXPIRED"],
+                    "description": "The status of the invitation, indicating whether it is invoked, pending, accepted, rejected or expired. If the user is self signed up then this field will be empty."
+                },
+                "policies": {
+                    "description": "List all the policies.",
+                    "$ref": "#/definitions/team_policy.list"
+                }
+            }
+        },
+        "delete_team_member": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The generated unique ID for either the user or user group. If is_user is true, this field contains the user ID. If is_user is false, this field contains the user group ID."
+                },
+                "is_user": {
+                    "type": "boolean",
+                    "description": "When true, it means the user will be deleting, and when false, it means that user group will be deleting."
+                }
+            }
+        },
+        "team.delete.list": {
+            "type": "object",
+            "properties": {
+                "team": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 10,
+                    "description": "The list of existing user IDs or user group IDS to be deleted.",
+                    "items": {
+                        "$ref": "#/definitions/delete_team_member"
+                    }
+                }
+            }
+        },
         "user.response": {
             "type": "object",
             "properties": {
@@ -4575,6 +5161,134 @@
                     "items": {
                         "$ref": "#/definitions/roles"
                     }
+                }
+            }
+        },
+        "department.list": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "acc_mappings.response": {
+            "type": "object",
+            "properties": {
+                "total_count": {
+                    "type": "integer",
+                    "description": "The number of account mappings included in the response."
+                },
+                "prev_cursor": {
+                    "type": "string",
+                    "description": "The previous cursor used for backward pagination, omittable."
+                },
+                "next_cursor": {
+                    "type": "string",
+                    "description": "The next cursor used for forward pagination, omittable."
+                },
+                "acc_mappings": {
+                    "$ref": "#/definitions/acc_mappings.list"
+                }
+            }
+        },
+        "acc_mappings.list": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/acc_mapping"
+            }
+        },
+        "acc_mapping": {
+            "type": "object",
+            "required": [
+                "product",
+                "account_id"
+            ],
+            "properties": {
+                "product": {
+                    "type": "string",
+                    "enum": ["Kochava", "SAM"],
+                    "description": "The product name."
+                },
+                "account_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The account id."
+                },
+                "api_key": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "description": "The api key."
+                }
+            }
+        },
+        "team.multi.status.response": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/error.response"
+            }
+        },
+        "team_policy.list": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/team_user_policy"
+            }
+        },
+        "team_user_policy": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The generated unique ID of the policy."
+                },
+                "role_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The generated unique ID of the role to which this policy is associated."
+                },
+                "role_name": {
+                    "type": "string",
+                    "description": "The role with which the policy is associated."
+                }
+            }
+        },
+        "user_policy.list": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/user_policy"
+            }
+        },
+        "user_policy": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The generated unique ID of the policy."
+                },
+                "level": {
+                    "type": "string",
+                    "enum": ["ORG", "WS"],
+                    "description": "The level at which the role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level."
+                },
+                "level_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The generated unique ID of the organization or workspace depends on the level. If the level is \"ORG\", then this field contains the organization ID. If the level is \"WS\", then this field contains the workspace ID."
+                },
+                "level_name": {
+                    "type": "string",
+                    "description": "The name of the organization or workspace depends on the level. If the level is \"ORG\", then this field contains the organization name. If the level is \"WS\", then this field contains the workspace name."
+                },
+                "role_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The generated unique ID of the role to which this policy is associated."
+                },
+                "role_name": {
+                    "type": "string",
+                    "description": "The role with which the policy is associated."
                 }
             }
         },
