@@ -2465,7 +2465,7 @@
                     "207": {
                         "description": "Multi-Status",
                         "schema": {
-                            "$ref": "#/definitions/user.invite.response"
+                            "$ref": "#/definitions/multi_status.response"
                         }
                     },
                     "400": {
@@ -2829,7 +2829,7 @@
                     "207": {
                         "description": "Multi-Status",
                         "schema": {
-                            "$ref": "#/definitions/user.invite.response"
+                            "$ref": "#/definitions/multi_status.response"
                         }
                     },
                     "400": {
@@ -4613,6 +4613,171 @@
                     }
                 }
             }
+        },
+        "/account/reset-password": {
+            "get": {
+                "description": "This endpoint is used to access user invitation password recovery email link.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Public"
+                ],
+                "summary": "Get password recovery code for the user invitation email link.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Unique invitation link id.",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Found"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/sso/provider": {
+            "post": {
+                "description": "This endpoint is used to get sso provider id for the given user email.\n1. When no sso provider is configured for the given domain then api returns 204(No Content).\n2. When m/OS account doesn't exist for the given email then api returns 422(Unprocessable Entity) with error message in the response body.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Public"
+                ],
+                "summary": "Get sso provider id for the given user email",
+                "parameters": [
+                    {
+                        "description": "The request body includes the user email address.",
+                        "name": "Sso",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/sso.provider.get.request"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/sso.provider.get.response"
+                        }
+                    },
+                    "204": {
+                        "description": "No content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 5530007,
+                                "message": "Please reach out to your organization's administrator to request an invitation.",
+                                "type": "error",
+                                "context": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/validate-session": {
+            "get": {
+                "description": "This API serves the purpose of validating sessions for Social Sign-In users with valid associated m/OS accounts. Additionally, please note that in the Social Sign-In use-case, this should be the initial call following successful social authentication, before making any other API requests.\n\nNOTE: When m/OS account doesn't exist for the current logged-in social sign-in user then api returns 422(Unprocessable Entity) with error message in the response body",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Session"
+                ],
+                "summary": "Verify if there is an m/OS account associated with the currently logged-in social sign-in user",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/validate.session.get.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 5530008,
+                                "message": "Kindly connect your social sign-in account to your organization's account beforehand.",
+                                "type": "error",
+                                "context": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -5225,7 +5390,7 @@
         "team.multi.status.response": {
             "type": "array",
             "items": {
-                "$ref": "#/definitions/error.response"
+                "$ref": "#/definitions/multistatus.error.response"
             }
         },
         "team_policy.list": {
@@ -5799,7 +5964,7 @@
             "properties": {
                 "email": {
                     "type": "string",
-                    "minLength": 1,
+                    "minLength": 3,
                     "maxLength": 128,
                     "format": "email",
                     "description": "The email address of the invited user."
@@ -5857,10 +6022,10 @@
                 }
             }
         },
-        "user.invite.response": {
+        "multi_status.response": {
             "type": "array",
             "items": {
-                "$ref": "#/definitions/error.response"
+                "$ref": "#/definitions/multistatus.error.response"
             }
         },
         "error.response": {
@@ -5868,7 +6033,32 @@
             "properties": {
                 "id": {
                     "type": "integer",
-                    "description": "Internal error code. \n\r\nDetails of error code is available at https://docs.google.com/spreadsheets/d/139Vb5s4bqv7HthlJHRpUDyBBm-533YsRvc8cHIf6CT8/edit#gid=0"
+                    "description": "Error code. \n\r\nDetails of error code is available at https://docs.google.com/spreadsheets/d/139Vb5s4bqv7HthlJHRpUDyBBm-533YsRvc8cHIf6CT8/edit#gid=0"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error reason. \n\r\nDetails of error reason is available at https://docs.google.com/spreadsheets/d/139Vb5s4bqv7HthlJHRpUDyBBm-533YsRvc8cHIf6CT8/edit#gid=0"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Error type, example: error, warning."
+                },
+                "context": {
+                    "type": "string",
+                    "description": "Additional information related to error."
+                }
+            }
+        },
+        "multistatus.error.response": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer",
+                    "description": "HTTP status code."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "Error code. \n\r\nDetails of error code is available at https://docs.google.com/spreadsheets/d/139Vb5s4bqv7HthlJHRpUDyBBm-533YsRvc8cHIf6CT8/edit#gid=0"
                 },
                 "message": {
                     "type": "string",
@@ -5949,6 +6139,47 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the workspace."
+                }
+            }
+        },
+        "sso.provider.get.request": {
+            "type": "object",
+            "required": [
+                "email"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 128,
+                    "description": "The email address of the user."
+                }
+            }
+        },
+        "sso.provider.get.response": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The sso provider id."
+                }
+            }
+        },
+        "validate.session.get.response": {
+            "type": "object",
+            "required": [
+                "userId"
+            ],
+            "properties": {
+                "userId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The m/OS user id."
                 }
             }
         }
