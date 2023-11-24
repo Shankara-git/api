@@ -1104,7 +1104,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles"
                 ],
                 "summary": "Create a role with list of capability",
                 "parameters": [
@@ -1167,7 +1167,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles"
                 ],
                 "summary": "Get a list of all the roles and its capabilities",
                 "parameters": [
@@ -1233,7 +1233,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles"
                 ],
                 "summary": "Replace a existing role and its list of capability",
                 "parameters": [
@@ -1296,7 +1296,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles"
                 ],
                 "summary": "Add or delete capabilities in a role",
                 "parameters": [
@@ -1359,7 +1359,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles"
                 ],
                 "summary": "Delete a role",
                 "parameters": [
@@ -1408,7 +1408,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles"
                 ],
                 "summary": "Get a list of all the capabilities for the role",
                 "parameters": [
@@ -1481,7 +1481,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles Capability"
                 ],
                 "summary": "Create a capability",
                 "parameters": [
@@ -1544,7 +1544,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles Capability"
                 ],
                 "summary": "Get a list of all the capabilities",
                 "parameters": [
@@ -1610,7 +1610,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles Capability"
                 ],
                 "summary": "Get a list of all the capabilities for the resource type",
                 "parameters": [
@@ -1683,7 +1683,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles Capability"
                 ],
                 "summary": "Delete a capability",
                 "parameters": [
@@ -1739,7 +1739,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Roles and Capability"
+                    "Roles Capability"
                 ],
                 "summary": "Get a details of a capability",
                 "parameters": [
