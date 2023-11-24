@@ -1,0 +1,1032 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Kochava IAM Admin API",
+        "title": "Kochava IAM Admin API",
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/service/admin/",
+    "paths": {
+        "/organizations": {
+            "post": {
+                "description": "This endpoint is used to create a new organization. If operation is successful, the response body \n\r\ncontains the newly created organization details.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Create an organization",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "The request body includes the details of the organization to be created.",
+                        "name": "Organization",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/organization.create"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/organization.response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }                    
+                }
+            },
+            "get": {
+                "description": "This endpoint is used to get all organizations.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Get all organizations",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Page size.",
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 100
+                    },
+                    {
+                        "type": "string",
+                        "description": "Pagination cursor, value represent base64 string.",
+                        "name": "cursor",
+                        "in": "query",
+                        "required": false,
+                        "maxLength": 256
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["after", "before"],
+                        "description": "Pagination direction.",
+                        "name": "direction",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/organization.list"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }                    
+                }
+            }
+        },
+        "/organization/{organization_id}": {
+            "put": {
+                "description": "This endpoint is used to update an organization.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Update an organization",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "The request body includes the details of the organization to be created.",
+                        "name": "Organization",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/organization.update"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/organization.response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "This endpoint is used to get an organization details.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Get an organization details",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/organization.response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This endpoint is used to delete an organization. Please note that executing this operation will result in the removal of all the users, user groups, workspaces, resources, invitations and policies associated with the organization being deleted.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Delete an organization",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_name}/domain/{domain_name}": {
+            "post": {
+                "description": "This endpoint is used to add an organization user.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add a user to an organization",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Organization name",
+                        "name": "organization_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Domain name",
+                        "name": "domain_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "The request body contains the details of the user to be added to an organization.",
+                        "name": "User",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/organization.user.create"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_name}/domain/{domain_name}/users/{user_mail}": {
+            "delete": {
+                "description": "This endpoint is used to delete an organization user.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete an organization user",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Organization name",
+                        "name": "organization_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Domain name",
+                        "name": "domain_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "User email",
+                        "name": "user_mail",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_name}/domain/{domain_name}/acc-mappings": {
+            "post": {
+                "description": "This endpoint is used to add organization to product account mapping.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Add a product account mapping to an organization",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Organization name",
+                        "name": "organization_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Domain name",
+                        "name": "domain_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "The request body contains the details of the product account mapping to be added to an organization.",
+                        "name": "Account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/organization.account.create"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/organization.account.response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_name}/domain/{domain_name}/acc-mappings/{product}": {
+            "put": {
+                "description": "This endpoint is used to update an organization's product account mapping.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Update an organization to product account mapping",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Organization name",
+                        "name": "organization_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Domain name",
+                        "name": "domain_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Product name",
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "enum": ["Kochava", "SAM"]
+                    },
+                    {
+                        "description": "The request body contains the details of the product account mapping to be added to an organization.",
+                        "name": "Account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/organization.account.update"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/organization.account.response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This endpoint is used to delete an organization's product account mapping.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Delete an organization to product account mapping",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Organization name",
+                        "name": "organization_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Domain name",
+                        "name": "domain_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Product name",
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "enum": ["Kochava", "SAM"]
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "organization.create": {
+            "type": "object",
+            "required": [
+                "name",
+                "domain"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The unique name of the organization."
+                },
+                "description": {
+                    "type": "string",
+                    "maxLength": 512,
+                    "description": "Optional. A brief description of the organization."
+                },
+                "domain": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "pattern": "^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$",
+                    "description": "Organization domain."
+                },
+                "website": {
+                    "type": "string",
+                    "format": "uri",
+                    "maxLength": 1024,
+                    "pattern": "^(https?|http?)://",
+                    "description": "Optional. The URL of the organization's website."
+                },
+                "logo_url": {
+                    "type": "string",
+                    "maxLength": 1024,
+                    "format": "uri",
+                    "pattern": "^(https?|http?)://",
+                    "description": "Optional. The path to the uploaded organization logo. Please note that you should upload the logo first and then use the URL path of the uploaded logo here."
+                },
+                "traits": {
+                    "$ref": "#/definitions/organization.traits"
+                }
+            }
+        },
+        "organization.update": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The current unique name of the organization that will be updated with new details."
+                },
+                "description": {
+                    "type": "string",
+                    "maxLength": 512,
+                    "description": "Optional. A brief description of the organization."
+                },
+                "website": {
+                    "type": "string",
+                    "format": "uri",
+                    "maxLength": 1024,
+                    "pattern": "^(https?|http?)://",
+                    "description": "Optional. The URL of the organization's website."
+                },
+                "logo_url": {
+                    "type": "string",
+                    "maxLength": 1024,
+                    "format": "uri",
+                    "pattern": "^(https?|http?)://",
+                    "description": "Optional. The path to the uploaded organization logo. Please note that you should upload the logo first and then use the URL path of the uploaded logo here."
+                },
+                "traits": {
+                    "$ref": "#/definitions/organization.traits"
+                }
+            }
+        },
+        "organization.list": {
+            "type": "object",
+            "properties": {
+                "total_count": {
+                    "type": "integer",
+                    "description": "The number of organization details included in the response."
+                },
+                "prev_cursor": {
+                    "type": "string",
+                    "description": "The previous cursor used for backward pagination, omittable."
+                },
+                "next_cursor": {
+                    "type": "string",
+                    "description": "The next cursor used for forward pagination, omittable."
+                },
+                "organizations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/organization.response"
+                    }
+                }
+            }
+        },
+        "organization.traits": {
+            "type": "object",
+            "properties": {
+                "meta_data": {
+                    "type": "string",
+                    "format": "json",
+                    "description": "Metadata of the organization."
+                },
+                "interests": {
+                    "$ref": "#/definitions/interests.list"
+                }
+            }
+        },
+        "interests.list": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "organization.user.create": {
+            "type": "object",
+            "required": [
+                "email",
+                "first_name",
+                "password",
+                "org_role"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "The email address of the user."
+                },
+                "first_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The first name of the user."
+                },
+                "last_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "Optional. The last name of the user."
+                },
+                "display_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "description": "Optional. The display name of the user."
+                },
+                "password": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "Password in plain text."
+                },
+                "org_role": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512,
+                    "description": "Role name."
+                },
+                "username": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 100,
+                    "description": "The username of the user."
+                }
+            }
+        },
+        "organization.account.create": {
+            "type": "object",
+            "required": [
+                "product",
+                "account_id"
+            ],
+            "properties": {
+                "product": {
+                    "type": "string",
+                    "enum": ["Kochava", "SAM"],
+                    "description": "The product name."
+                },
+                "account_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The account id."
+                },
+                "api_key": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "description": "The api key."
+                }
+            }
+        },
+        "organization.account.update": {
+            "type": "object",
+            "required": [
+                "account_id"
+            ],
+            "properties": {
+                "account_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The account id."
+                },
+                "api_key": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "description": "The api key."
+                }
+            }
+        },
+        "organization.account.response": {
+            "type": "object",
+            "required": [
+                "product",
+                "account_id"
+            ],
+            "properties": {
+                "product": {
+                    "type": "string",
+                    "enum": ["Kochava", "SAM"],
+                    "description": "The product name."
+                },
+                "account_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The account id."
+                },
+                "api_key": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "description": "The api key."
+                },
+                "created_time": {
+                    "type": "string",
+                    "description": "The creation time of the organization's product account mapping, expressed as a timestamp in UTC. For example: \"2014-10-02T15:01:23Z\"."
+                },
+                "updated_time": {
+                    "type": "string",
+                    "description": "The timestamp in UTC indicating the most recent modification time of the organization's product account mapping. For example: \"2014-10-02T15:01:23Z\"."
+                }
+            }
+        },
+        "error.response": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "Internal error code. \n\r\nDetails of error code is available at https://docs.google.com/spreadsheets/d/139Vb5s4bqv7HthlJHRpUDyBBm-533YsRvc8cHIf6CT8/edit#gid=0"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error reason. \n\r\nDetails of error reason is available at https://docs.google.com/spreadsheets/d/139Vb5s4bqv7HthlJHRpUDyBBm-533YsRvc8cHIf6CT8/edit#gid=0"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Error type, example: error, warning."
+                },
+                "context": {
+                    "type": "string",
+                    "description": "Additional information related to error."
+                }
+            }           
+        },
+        "organization.response": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The generated unique ID of the organization."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the organization."
+                },
+                "website": {
+                    "type": "string",
+                    "description": "The URL of the organization's website."
+                },
+                "logo_url": {
+                    "type": "string",
+                    "description": "The path to the organization's logo."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A brief description of the organization."
+                },
+                "traits": {
+                    "$ref": "#/definitions/organization.traits"
+                },
+                "created_time": {
+                    "type": "string",
+                    "description": "The creation time of the organization, expressed as a timestamp in UTC. For example: \"2014-10-02T15:01:23Z\"."
+                },
+                "updated_time": {
+                    "type": "string",
+                    "description": "The timestamp in UTC indicating the most recent modification time of the organization. For example: \"2014-10-02T15:01:23Z\"."
+                },
+                "created_by_user_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The unique ID of the user who created this organization."
+                },
+                "updated_by_user_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The unique ID of the user who updated this organization."
+                }
+            }
+        }
+    }
+}
