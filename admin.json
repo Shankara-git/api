@@ -872,7 +872,7 @@
                         "required": true
                     },
                     {
-                        "description": "The request body contains the details of the resource type to be created.",
+                        "description": "The request body contains the details of the resource type to be replaced.",
                         "name": "Resource",
                         "in": "body",
                         "required": true,
@@ -985,31 +985,6 @@
                     },
                     {
                         "type": "string",
-                        "description": "Page size.",
-                        "name": "limit",
-                        "in": "query",
-                        "required": false,
-                        "minimum": 1,
-                        "maximum": 100
-                    },
-                    {
-                        "type": "string",
-                        "description": "Pagination cursor, value represent base64 string.",
-                        "name": "cursor",
-                        "in": "query",
-                        "required": false,
-                        "maxLength": 256
-                    },
-                    {
-                        "type": "string",
-                        "enum": ["after", "before"],
-                        "description": "Pagination direction.",
-                        "name": "direction",
-                        "in": "query",
-                        "required": false
-                    },
-                    {
-                        "type": "string",
                         "description": "Resource type name",
                         "name": "resource_type",
                         "in": "path",
@@ -1020,7 +995,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/resource.types.list"
+                            "$ref": "#/definitions/resource.types"
                         }
                     },
                     "400": {
@@ -1052,7 +1027,7 @@
         },
         "/resources/{resource_type}/operations": {
             "post": {
-                "description": "This endpoint is used to add or delete a list of operations to existing resource type. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
+                "description": "This endpoint is used to add or delete a list of operations to or from existing resource type. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
                 "produces": [
                     "application/json"
                 ],
@@ -1187,14 +1162,14 @@
                 }
             },
             "get": {
-                "description": "This endpoint is used retrieve a list of all the capabilities for the resource type.",
+                "description": "This endpoint is used retrieve a list of all the roles and its capabilities.",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "Roles and Capability"
                 ],
-                "summary": "Get a list of all the capabilities for the resource type",
+                "summary": "Get a list of all the roles and its capabilities",
                 "parameters": [
                     {
                         "type": "string",
@@ -1253,14 +1228,14 @@
         },
         "/roles/{role_name}": {
             "put": {
-                "description": "This endpoint is used to replace existing role with list of capability. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
+                "description": "This endpoint is used to replace existing role and its list of capability. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "Roles and Capability"
                 ],
-                "summary": "Replace a role with list of capability",
+                "summary": "Replace a existing role and its list of capability",
                 "parameters": [
                     {
                         "type": "string",
@@ -1338,7 +1313,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/role.update.capability"
+                            "$ref": "#/definitions/role.update.capability.list"
                         }
                     }
                 ],
@@ -1428,14 +1403,14 @@
                 }
             },
             "get": {
-                "description": "This endpoint is used retrieve a list of all the capabilities for the resource type.",
+                "description": "This endpoint is used retrieve a list of all the capabilities for the role.",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "Roles and Capability"
                 ],
-                "summary": "Get a list of all the capabilities for the resource type",
+                "summary": "Get a list of all the capabilities for the role",
                 "parameters": [
                     {
                         "type": "string",
@@ -1518,7 +1493,7 @@
                         "required": true
                     },
                     {
-                        "description": "The request body contains the details of the resource type to be created.",
+                        "description": "The request body contains the details of the capability to be created.",
                         "name": "Resource",
                         "in": "body",
                         "required": true,
@@ -1564,14 +1539,14 @@
                 }
             },
             "get": {
-                "description": "This endpoint is used retrieve a list of all the capabilities for the resource type.",
+                "description": "This endpoint is used retrieve a list of all the capabilities.",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "Roles and Capability"
                 ],
-                "summary": "Get a list of all the capabilities for the resource type",
+                "summary": "Get a list of all the capabilities",
                 "parameters": [
                     {
                         "type": "string",
@@ -1759,14 +1734,14 @@
                 }
             },
             "get": {
-                "description": "This endpoint is used retrieve a list of all capabilities of the resource type.",
+                "description": "This endpoint is used retrieve a details of a capability.",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "Roles and Capability"
                 ],
-                "summary": "Get a list of all capabilities of the resource type",
+                "summary": "Get a details of a capability",
                 "parameters": [
                     {
                         "type": "string",
@@ -2194,6 +2169,7 @@
         "resource.type.operations": {
             "type": "object",
             "required": [
+                "action",
                 "operations"
             ],
             "properties": {
@@ -2226,7 +2202,7 @@
                     "type": "string",
                     "description": "The next cursor used for forward pagination, omittable."
                 },
-                "resource_type": {
+                "resource_types": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/resource.types"
@@ -2306,7 +2282,7 @@
                     "type": "string",
                     "description": "The next cursor used for forward pagination, omittable."
                 },
-                "resource_type": {
+                "capability_list": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/role.capability.get"
@@ -2375,12 +2351,24 @@
                 }
             }
         },
+        "role.update.capability.list": {
+            "type": "object",
+            "properties": {
+                "update_capabilities": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 2,
+                    "items": {
+                        "$ref": "#/definitions/role.update.capability"
+                    }
+                }
+            }
+        },
         "role.update.capability": {
             "type": "object",
             "required": [
-                "name",
-                "scope",
-                "operation"
+                "action",
+                "capability_list"
             ],
             "properties": {
                 "action": {
@@ -2402,7 +2390,7 @@
             "required": [
                 "name",
                 "scope",
-                "operation"
+                "capability_list"
             ],
             "properties": {
                 "name": {
