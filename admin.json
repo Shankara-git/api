@@ -1097,6 +1097,344 @@
                 }
             }
         },
+        "/roles/capability": {
+            "post": {
+                "description": "This endpoint is used to create a capability, which will be bind to role.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles Capability"
+                ],
+                "summary": "Create a capability",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "The request body contains the details of the capability to be created.",
+                        "name": "Resource",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/role.capability.create"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "This endpoint is used retrieve a list of all the capabilities.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles Capability"
+                ],
+                "summary": "Get a list of all the capabilities",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Page size.",
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 100
+                    },
+                    {
+                        "type": "string",
+                        "description": "Pagination cursor, value represent base64 string.",
+                        "name": "cursor",
+                        "in": "query",
+                        "required": false,
+                        "maxLength": 256
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["after", "before"],
+                        "description": "Pagination direction.",
+                        "name": "direction",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/role.capability.list"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/roles/resource-type/{resource_type}": {
+            "get": {
+                "description": "This endpoint is used retrieve a list of all the capabilities for the resource type.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles Capability"
+                ],
+                "summary": "Get a list of all the capabilities for the resource type",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Page size.",
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 100
+                    },
+                    {
+                        "type": "string",
+                        "description": "Pagination cursor, value represent base64 string.",
+                        "name": "cursor",
+                        "in": "query",
+                        "required": false,
+                        "maxLength": 256
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["after", "before"],
+                        "description": "Pagination direction.",
+                        "name": "direction",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "type": "string",
+                        "description": "Resource type name",
+                        "name": "resource_type",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/resource.capability.list"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/roles/resource-type/{resource_type}/capability/{capability_name}": {
+            "delete": {
+                "description": "This endpoint is used to delete a capability. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles Capability"
+                ],
+                "summary": "Delete a capability",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Resource type name",
+                        "name": "resource_type",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Capability name",
+                        "name": "capability_name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "This endpoint is used retrieve a details of a capability.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Roles Capability"
+                ],
+                "summary": "Get a details of a capability",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Page size.",
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 100
+                    },
+                    {
+                        "type": "string",
+                        "description": "Pagination cursor, value represent base64 string.",
+                        "name": "cursor",
+                        "in": "query",
+                        "required": false,
+                        "maxLength": 256
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["after", "before"],
+                        "description": "Pagination direction.",
+                        "name": "direction",
+                        "in": "query",
+                        "required": false
+                    },
+                    {
+                        "type": "string",
+                        "description": "Resource type name",
+                        "name": "resource_type",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Capability name",
+                        "name": "capability_name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/role.capability.get"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
         "/roles": {
             "post": {
                 "description": "This endpoint is used to create a role with list of capability.",
@@ -1457,344 +1795,6 @@
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/role.get"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    }
-                }
-            }
-        },
-        "/roles/capability": {
-            "post": {
-                "description": "This endpoint is used to create a capability, which will be bind to role.",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Roles Capability"
-                ],
-                "summary": "Create a capability",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "description": "The request body contains the details of the capability to be created.",
-                        "name": "Resource",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/role.capability.create"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Created"
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "404": {
-                        "description": "Not Found",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "409": {
-                        "description": "Conflict",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    }
-                }
-            },
-            "get": {
-                "description": "This endpoint is used retrieve a list of all the capabilities.",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Roles Capability"
-                ],
-                "summary": "Get a list of all the capabilities",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Page size.",
-                        "name": "limit",
-                        "in": "query",
-                        "required": false,
-                        "minimum": 1,
-                        "maximum": 100
-                    },
-                    {
-                        "type": "string",
-                        "description": "Pagination cursor, value represent base64 string.",
-                        "name": "cursor",
-                        "in": "query",
-                        "required": false,
-                        "maxLength": 256
-                    },
-                    {
-                        "type": "string",
-                        "enum": ["after", "before"],
-                        "description": "Pagination direction.",
-                        "name": "direction",
-                        "in": "query",
-                        "required": false
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/role.capability.list"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    }
-                }
-            }
-        },
-        "/roles/resource-type/{resource_type}": {
-            "get": {
-                "description": "This endpoint is used retrieve a list of all the capabilities for the resource type.",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Roles Capability"
-                ],
-                "summary": "Get a list of all the capabilities for the resource type",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Page size.",
-                        "name": "limit",
-                        "in": "query",
-                        "required": false,
-                        "minimum": 1,
-                        "maximum": 100
-                    },
-                    {
-                        "type": "string",
-                        "description": "Pagination cursor, value represent base64 string.",
-                        "name": "cursor",
-                        "in": "query",
-                        "required": false,
-                        "maxLength": 256
-                    },
-                    {
-                        "type": "string",
-                        "enum": ["after", "before"],
-                        "description": "Pagination direction.",
-                        "name": "direction",
-                        "in": "query",
-                        "required": false
-                    },
-                    {
-                        "type": "string",
-                        "description": "Resource type name",
-                        "name": "resource_type",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/resource.capability.list"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    }
-                }
-            }
-        },
-        "/roles/resource-type/{resource_type}/capability/{capability_name}": {
-            "delete": {
-                "description": "This endpoint is used to delete a capability. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Roles Capability"
-                ],
-                "summary": "Delete a capability",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Resource type name",
-                        "name": "resource_type",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Capability name",
-                        "name": "capability_name",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    }
-                }
-            },
-            "get": {
-                "description": "This endpoint is used retrieve a details of a capability.",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Roles Capability"
-                ],
-                "summary": "Get a details of a capability",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Page size.",
-                        "name": "limit",
-                        "in": "query",
-                        "required": false,
-                        "minimum": 1,
-                        "maximum": 100
-                    },
-                    {
-                        "type": "string",
-                        "description": "Pagination cursor, value represent base64 string.",
-                        "name": "cursor",
-                        "in": "query",
-                        "required": false,
-                        "maxLength": 256
-                    },
-                    {
-                        "type": "string",
-                        "enum": ["after", "before"],
-                        "description": "Pagination direction.",
-                        "name": "direction",
-                        "in": "query",
-                        "required": false
-                    },
-                    {
-                        "type": "string",
-                        "description": "Resource type name",
-                        "name": "resource_type",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Capability name",
-                        "name": "capability_name",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/role.capability.get"
                         }
                     },
                     "400": {
