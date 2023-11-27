@@ -705,7 +705,7 @@
                 }
             }
         },
-        "/resources": {
+        "/resource-types": {
             "post": {
                 "description": "This endpoint is used to add a resource type.",
                 "produces": [
@@ -846,7 +846,7 @@
                 }
             }
         },
-        "/resources/{resource_type}": {
+        "/resource-types/{resource_type}": {
             "put": {
                 "description": "This endpoint is used to replace existing a resource type and its operations. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
                 "produces": [
@@ -1025,7 +1025,7 @@
                 }
             }
         },
-        "/resources/{resource_type}/operations": {
+        "/resource-types/{resource_type}/operations": {
             "post": {
                 "description": "This endpoint is used to add or delete a list of operations to or from existing resource type. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
                 "produces": [
@@ -1051,12 +1051,12 @@
                         "required": true
                     },
                     {
-                        "description": "The request body contains list of operation to be added to this resource type.",
+                        "description": "The request body contains list of operation to be added or deleted to or from this resource type.",
                         "name": "Operations",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/resource.type.operations"
+                            "$ref": "#/definitions/resource.type.operations.list"
                         }
                     }
                 ],
@@ -1226,7 +1226,7 @@
                 }
             }
         },
-        "/roles/resource-type/{resource_type}": {
+        "/roles/resource-type/{resource_type}/capability": {
             "get": {
                 "description": "This endpoint is used retrieve a list of all the capabilities for the resource type.",
                 "produces": [
@@ -2166,6 +2166,19 @@
                 }
             }
         },
+        "resource.type.operations.list": {
+            "type": "object",
+            "properties": {
+                "update_operations": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 2,
+                    "items": {
+                        "$ref": "#/definitions/resource.type.operations"
+                    }
+                }
+            }
+        },
         "resource.type.operations": {
             "type": "object",
             "required": [
@@ -2176,7 +2189,7 @@
                 "action": {
                     "type": "string",
                     "enum": ["0", "1"],
-                    "description": "The action to be performed on the operations list in resource type. \n\r\n0: Add a list of operations to existing resource type.\n\r\n1: Delete a list of operations from existing resource type."
+                    "description": "The action to be performed on the operations list of the resource type. \n\r\n0: Add a list of operations to existing resource type.\n\r\n1: Delete a list of operations from existing resource type."
                 },
                 "operations": {
                     "type": "array",
@@ -2227,7 +2240,7 @@
                 },
                 "operations": {
                     "type": "array",
-                    "description": "The permitted operation for the resource type.",
+                    "description": "The permitted operation of the resource type.",
                     "items": {
                         "type": "string"
                     }
