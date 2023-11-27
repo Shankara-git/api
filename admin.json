@@ -714,7 +714,7 @@
                 "tags": [
                     "Resource Type"
                 ],
-                "summary": "Add a resource type to MOS-IAM server",
+                "summary": "Add a resource type",
                 "parameters": [
                     {
                         "type": "string",
