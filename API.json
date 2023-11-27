@@ -958,7 +958,6 @@
                 "summary": "Get all the resources of an organization",
                 "parameters": [
                     {
-                        "name": "req",
                         "in": "header",
                         "required": true,
                         "schema": {
@@ -970,7 +969,7 @@
                                 },
                                 {
                                     "type": "string",
-                                    "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                                    "description": "API-KEY",
                                     "name": "X-API-KEY"
                                 }
                             ]
