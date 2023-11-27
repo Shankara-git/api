@@ -965,16 +965,6 @@
                         "required": true
                     },
                     {
-                        "in": "header",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/cookie.apikey"
-                            }
-                        }
-                    },
-                    {
                         "type": "string",
                         "format": "uuid",
                         "description": "Organization ID",
