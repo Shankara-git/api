@@ -886,12 +886,12 @@
                 ],
                 "summary": "Register a resource to an organization",
                 "parameters": [
-                                        {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
+                    {
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -961,18 +961,7 @@
                         "in": "header",
                         "required": true,
                         "schema": {
-                            "oneOf": [
-                                {
-                                    "type": "string",
-                                    "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                                    "name": "Cookie"
-                                },
-                                {
-                                    "type": "string",
-                                    "description": "API-KEY",
-                                    "name": "X-API-KEY"
-                                }
-                            ]
+                            "$ref": "#/definitions/cookie.apikey"
                         }
                     },
                     {
@@ -1065,12 +1054,12 @@
                 ],
                 "summary": "Get an organization resource that belong to a particular product",
                 "parameters": [
-                                        {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
+                    {
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -1144,12 +1133,12 @@
                 ],
                 "summary": "Get an organization resource",
                 "parameters": [
-                                        {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
+                    {
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -1219,11 +1208,11 @@
                 "summary": "Unregister resource from an organization resource",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -1291,12 +1280,12 @@
                 ],
                 "summary": "Register a resource to the workspace",
                 "parameters": [
-                                        {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
+                    {
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -1370,12 +1359,12 @@
                 ],
                 "summary": "Get a list of all the resources in a workspace",
                 "parameters": [
-                                        {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
+                    {
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -1459,7 +1448,7 @@
                         }
                     }
                 }
-            }            
+            }
         },
         "/organizations/{organization_id}/workspaces/{workspace_id}/product-name/{product_name}/resources": {
             "get": {
@@ -1472,12 +1461,12 @@
                 ],
                 "summary": "Get a list of all the resources in a workspace",
                 "parameters": [
-                                        {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
+                    {
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -1584,12 +1573,12 @@
                 ],
                 "summary": "Get a specific workspace resource",
                 "parameters": [
-                                        {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
+                    {
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -1666,12 +1655,12 @@
                 ],
                 "summary": "Unregister resource from the workspace",
                 "parameters": [
-                                        {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
+                    {
                         "in": "header",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/cookie.apikey"
+                        }
                     },
                     {
                         "type": "string",
@@ -5308,19 +5297,32 @@
         },
         "cookie.apikey": {
             "type": "object",
-            "properties": {
-               "Cookie": {
-                    "type": "string",
-                    "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored."
+            "oneOf": [
+                {
+                  "properties": {
+                    "Cookie": {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored."
+                    }
+                  },
+                  "required": [
+                    "Cookie"
+                  ],
+                  "additionalProperties": false
                 },
-                "X-API-KEY": {
-                    "type": "apiKey",
-                    "description": "Set the API-Key in Header. An API key is a special token that the client needs to provide when making API calls"
+                {
+                  "properties": {
+                    "X-API-KEY": {
+                        "type": "apiKey",
+                        "description": "Set the API-Key in Header. An API key is a special token that the client needs to provide when making API calls"
+                    }
+                  },
+                  "required": [
+                    "X-API-KEY"
+                  ],
+                  "additionalProperties": false
                 }
-            },
-            "minProperties": 1,
-            "maxProperties": 1,
-            "additionalProperties": false
+              ]
         },
         "resources.list": {
             "type": "object",
