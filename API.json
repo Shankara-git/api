@@ -965,6 +965,16 @@
                         "required": true
                     },
                     {
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/cookie.apikey"
+                            }
+                        }
+                    },
+                    {
                         "type": "string",
                         "format": "uuid",
                         "description": "Organization ID",
@@ -974,8 +984,8 @@
                     },
                     {
                         "type": "string",
-                        "description": "All the resources belonging to the specified resource type.",
-                        "name": "type",
+                        "description": "Get the details of resources belonging to a specific resource type.",
+                        "name": "resource-type",
                         "in": "query",
                         "maxLength": 64,
                         "required": false
@@ -1043,7 +1053,86 @@
                 }
             }
         },
-        "/organizations/{organization_id}/resources/{resource_id}": {
+        "/organizations/{organization_id}/product-name/{product_name}/resources": {
+            "get": {
+                "description": "This endpoint is used to retrieve the details of an organization resource that belong to a particular product.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Organization Resource"
+                ],
+                "summary": "Get an organization resource that belong to a particular product",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The resources belonging to the specified product.",
+                        "name": "product_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Get the details of resources belonging to a specific resource type.",
+                        "name": "resource-type",
+                        "in": "query",
+                        "maxLength": 64,
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/resources.list"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_id}/product-name/{product_name}/resources/{resource_id}": {
             "get": {
                 "description": "This endpoint is used to retrieve the details of of an organization resource.",
                 "produces": [
@@ -1074,6 +1163,13 @@
                         "format": "uuid",
                         "description": "The resources belonging to the specified resource ID.",
                         "name": "resource_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The resources belonging to the specified product.",
+                        "name": "product_name",
                         "in": "path",
                         "required": true
                     }
@@ -1139,8 +1235,15 @@
                     {
                         "type": "string",
                         "format": "uuid",
-                        "description": "Unique ID of the actual resource which is managed or created by the product.",
+                        "description": "ID of the actual resource which is managed or created by the product.",
                         "name": "resource_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The resources belonging to the specified product.",
+                        "name": "product_name",
                         "in": "path",
                         "required": true
                     }
@@ -1292,7 +1395,7 @@
                     {
                         "type": "string",
                         "description": "Get the details of resources belonging to a specific resource type.",
-                        "name": "type",
+                        "name": "resource-type",
                         "in": "query",
                         "maxLength": 64,
                         "required": false
@@ -1357,7 +1460,119 @@
                 }
             }            
         },
-        "/organizations/{organization_id}/workspaces/{workspace_id}/resources/{resource_id}": {
+        "/organizations/{organization_id}/workspaces/{workspace_id}/product-name/{product_name}/resources": {
+            "get": {
+                "description": "This endpoint is used to get a list of all the resources in a workspace.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Workspace Resource"
+                ],
+                "summary": "Get a list of all the resources in a workspace",
+                "parameters": [
+                                        {
+                        "type": "string",
+                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
+                        "name": "Cookie",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID",
+                        "name": "organization_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Workspace ID",
+                        "name": "workspace_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Get the details of resources belonging to a specific resource type.",
+                        "name": "resource-type",
+                        "in": "query",
+                        "maxLength": 64,
+                        "required": false
+                    },
+                    {
+                        "type": "string",
+                        "description": "The resources belonging to the specified product.",
+                        "name": "product_name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Page size.",
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 100
+                    },
+                    {
+                        "type": "string",
+                        "description": "Pagination cursor, value represent base64 string.",
+                        "name": "cursor",
+                        "in": "query",
+                        "required": false,
+                        "maxLength": 256
+                    },
+                    {
+                        "type": "string",
+                        "enum": ["after", "before"],
+                        "description": "Pagination direction.",
+                        "name": "direction",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/resources.list"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{organization_id}/workspaces/{workspace_id}/product-name/{product_name}/resources/{resource_id}": {
             "get": {
                 "description": "This endpoint is used to retrieve a workspace resource based on its resource ID.",
                 "produces": [
@@ -1396,6 +1611,13 @@
                         "format": "uuid",
                         "description": "The workspace resource belonging to the specified resource ID.",
                         "name": "resource_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The resources belonging to the specified product.",
+                        "name": "product_name",
                         "in": "path",
                         "required": true
                     }
@@ -1471,6 +1693,13 @@
                         "format": "uuid",
                         "description": "Unique ID of the actual resource which is managed or created by the product.",
                         "name": "resource_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The resources belonging to the specified product.",
+                        "name": "product_name",
                         "in": "path",
                         "required": true
                     }
@@ -5030,7 +5259,7 @@
                     "maxLength": 512,
                     "description": "Optional. A brief description of the resource."
                 },
-                "type": {
+                "resource-type": {
                     "type": "string",
                     "minLength": 1,
                     "maxLength": 64,
@@ -5042,6 +5271,12 @@
                     "minLength": 1,
                     "maxLength": 64,
                     "description": "Unique ID of the actual resource which is managed or created by the product."
+                },
+                "product-name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "description": "The unique name of the product to which resource instance is created."
                 }
             }
         },
@@ -5050,7 +5285,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Unique ID of the actual resource which is managed or created by the product."
+                    "description": "ID of the actual resource which is managed or created by the product."
                 },
                 "name": {
                     "type": "string",
@@ -5060,11 +5295,31 @@
                     "type": "string",
                     "description": "A brief description of the resource."
                 },
-                "type": {
+                "resource-type": {
                     "type": "string",
                     "description": "The resource type to which the registered resource belongs."
+                },
+                "product-name": {
+                    "type": "string",
+                    "description": "The name of the product to which this resource belons to."
                 }
             }
+        },
+        "cookie.apikey": {
+            "type": "object",
+            "properties": {
+               "Cookie": {
+                    "type": "string",
+                    "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored."
+                },
+                "X-API-KEY": {
+                    "type": "apiKey",
+                    "description": "Set the API-Key in Header. An API key is a special token that the client needs to provide when making API calls"
+                }
+            },
+            "minProperties": 1,
+            "maxProperties": 1,
+            "additionalProperties": false
         },
         "resources.list": {
             "type": "object",
@@ -5284,7 +5539,7 @@
                 }
             }
         },
-        "roles": {
+        "roles":  {
             "type": "object",
             "properties": {
                 "id": {
