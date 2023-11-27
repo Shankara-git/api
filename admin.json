@@ -2159,7 +2159,7 @@
                 },
                 "operations": {
                     "type": "array",
-                    "description": "The permitted operation for the resource type.",
+                    "description": "The permitted operation of the resource type.",
                     "items": {
                         "type": "string"
                     }
