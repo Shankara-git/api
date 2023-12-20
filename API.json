@@ -140,7 +140,7 @@
                 ],
                 "summary": "Get a list of organizations that the user belongs to",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -166,7 +166,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -263,7 +266,7 @@
                         "schema": {
                             "$ref": "#/definitions/error.response"
                         }
-                    }                    
+                    }
                 }
             }
         },
@@ -278,7 +281,7 @@
                 ],
                 "summary": "Update an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -351,7 +354,7 @@
                 ],
                 "summary": "Delete an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -407,7 +410,7 @@
                 ],
                 "summary": "Get an organization details",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -468,7 +471,7 @@
                 ],
                 "summary": "Get a list of all the workspaces of an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -502,7 +505,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -552,7 +558,7 @@
                 ],
                 "summary": "Create a workspace",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -678,7 +684,7 @@
                 ],
                 "summary": "Delete a workspace",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -736,7 +742,7 @@
                 ],
                 "summary": "Update the details of a workspace.",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -817,7 +823,7 @@
                 ],
                 "summary": "Get the details of a workspace.",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -999,7 +1005,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -1409,7 +1418,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -1518,7 +1530,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -1753,7 +1768,13 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["INVOKED", "PENDING", "ACCEPTED", "REJECTED", "EXPIRED"],
+                        "enum": [
+                            "INVOKED",
+                            "PENDING",
+                            "ACCEPTED",
+                            "REJECTED",
+                            "EXPIRED"
+                        ],
                         "description": "The status of the invitation.",
                         "name": "status",
                         "in": "query",
@@ -1830,7 +1851,13 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["INVOKED", "PENDING", "ACCEPTED", "REJECTED", "EXPIRED"],
+                        "enum": [
+                            "INVOKED",
+                            "PENDING",
+                            "ACCEPTED",
+                            "REJECTED",
+                            "EXPIRED"
+                        ],
                         "description": "The status of the invitation.",
                         "name": "status",
                         "in": "query",
@@ -2030,7 +2057,7 @@
                 ],
                 "summary": "Get a list of all the users of an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2064,7 +2091,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -2102,7 +2132,7 @@
                             "$ref": "#/definitions/error.response"
                         }
                     }
-                }                
+                }
             },
             "delete": {
                 "description": "This endpoint is used to delete all users of an organization.",
@@ -2114,7 +2144,7 @@
                 ],
                 "summary": "Delete all users of an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2293,7 +2323,7 @@
                 ],
                 "summary": "Delete a user from all organizations",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2345,7 +2375,7 @@
                 ],
                 "summary": "Get a list of all user groups of an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2379,7 +2409,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -2429,7 +2462,7 @@
                 ],
                 "summary": "Create a user group of an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2503,7 +2536,7 @@
                 ],
                 "summary": "Delete all user groups from the organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2555,7 +2588,7 @@
                 ],
                 "summary": "Get a list of all the users of the user group",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2597,7 +2630,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -2647,7 +2683,7 @@
                 ],
                 "summary": "Add users to the user group",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2731,7 +2767,7 @@
                 ],
                 "summary": "Get the details of a user group of an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2798,7 +2834,7 @@
                 ],
                 "summary": "Delete a user group of an organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2856,7 +2892,7 @@
                 ],
                 "summary": "Update an organization user group",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -2940,7 +2976,7 @@
                 ],
                 "summary": "Remove a user from a user group",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -3014,7 +3050,7 @@
                 ],
                 "summary": "Send an invitation to users to join the organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -3087,7 +3123,7 @@
                 ],
                 "summary": "Get a list of all invitations within the organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -3121,7 +3157,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -3173,7 +3212,7 @@
                 ],
                 "summary": "Get a list of all sent or received invitations",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -3182,7 +3221,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["sent", "received"],
+                        "enum": [
+                            "sent",
+                            "received"
+                        ],
                         "description": "The type of invitation: sent or received.",
                         "name": "type",
                         "in": "query",
@@ -3207,7 +3249,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -3253,7 +3298,7 @@
                 ],
                 "summary": "Accept or reject an invitation",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -3324,7 +3369,7 @@
                 ],
                 "summary": "Revoke an organization invitation",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -3465,7 +3510,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -3507,76 +3555,6 @@
             }
         },
         "/resource-types/{resource_type}": {
-            "put": {
-                "description": "This endpoint is used to replace existing a resource type and its operations. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Resource Type"
-                ],
-                "summary": "Replace existing resource type and its operations",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Resource type name",
-                        "name": "resource_type",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "description": "The request body contains the details of the resource type to be replaced.",
-                        "name": "Resource",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/resource.type.create"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Created"
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "404": {
-                        "description": "Not Found",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "409": {
-                        "description": "Conflict",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    }
-                }
-            },
             "delete": {
                 "description": "This endpoint is used to delete a resource type. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
                 "produces": [
@@ -3614,6 +3592,12 @@
                     },
                     "401": {
                         "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
                         "schema": {
                             "$ref": "#/definitions/error.response"
                         }
@@ -3716,13 +3700,19 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/resource.type.operations.list"
+                            "type": "array",
+                            "minItems": 1,
+                            "maxItems": 2,
+                            "$ref": "#/definitions/resource.type.operations"
                         }
                     }
                 ],
                 "responses": {
-                    "201": {
-                        "description": "Created"
+                    "207": {
+                        "description": "Multi-Status",
+                        "schema": {
+                            "$ref": "#/definitions/multi_status.response"
+                        }
                     },
                     "400": {
                         "description": "Bad Request",
@@ -3744,6 +3734,12 @@
                     },
                     "409": {
                         "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
                         "schema": {
                             "$ref": "#/definitions/error.response"
                         }
@@ -3857,7 +3853,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -3923,7 +3922,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -4008,6 +4010,12 @@
                             "$ref": "#/definitions/error.response"
                         }
                     },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
@@ -4052,7 +4060,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -4195,7 +4206,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -4225,69 +4239,6 @@
             }
         },
         "/roles/{role_name}": {
-            "put": {
-                "description": "This endpoint is used to replace existing role and its list of capability. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Roles"
-                ],
-                "summary": "Replace a existing role and its list of capability",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
-                        "name": "Cookie",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "description": "The request body contains the details of the role to be updated.",
-                        "name": "Resource",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/role.create"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Created"
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "404": {
-                        "description": "Not Found",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "409": {
-                        "description": "Conflict",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/error.response"
-                        }
-                    }
-                }
-            },
             "post": {
                 "description": "This endpoint is used to add or delete capabilities in a role. Please note that delete will be blocked and thrown error in case that resource type is already been assigned to one of the user. Only after removing those roles from user policy, the delete would be successful.",
                 "produces": [
@@ -4311,13 +4262,19 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/role.update.capability.list"
+                            "type": "array",
+                            "minItems": 1,
+                            "maxItems": 2,
+                            "$ref": "#/definitions/role.update.capability"
                         }
                     }
                 ],
                 "responses": {
-                    "201": {
-                        "description": "Created"
+                    "207": {
+                        "description": "Multi-Status",
+                        "schema": {
+                            "$ref": "#/definitions/multi_status.response"
+                        }
                     },
                     "400": {
                         "description": "Bad Request",
@@ -4339,6 +4296,12 @@
                     },
                     "409": {
                         "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
                         "schema": {
                             "$ref": "#/definitions/error.response"
                         }
@@ -4392,6 +4355,12 @@
                             "$ref": "#/definitions/error.response"
                         }
                     },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/error.response"
+                        }
+                    },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
@@ -4436,7 +4405,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -4483,7 +4455,7 @@
                 ],
                 "summary": "Delete a policy",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -4549,7 +4521,7 @@
                 ],
                 "summary": "Delete a list of policies",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -4616,7 +4588,7 @@
                 ],
                 "summary": "Create a new policy",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -4690,7 +4662,7 @@
                 ],
                 "summary": "Update a list of policies",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -4754,7 +4726,7 @@
                 ],
                 "summary": "Get a list of all policies whose role associated with organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -4788,7 +4760,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -4840,7 +4815,7 @@
                 ],
                 "summary": "Get a list of all policies whose role associated with workspace",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -4882,7 +4857,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -4934,7 +4912,7 @@
                 ],
                 "summary": "Get a list of policies of the current user whose role is associate with this organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -4968,7 +4946,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5020,7 +5001,7 @@
                 ],
                 "summary": "Get a list of policies of the user whose role is associate with this organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5062,7 +5043,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5114,7 +5098,7 @@
                 ],
                 "summary": "Get a list of policies of the user whose role is associate with this workspace",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5164,7 +5148,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5216,7 +5203,7 @@
                 ],
                 "summary": "Get a list of policies of the user group whose role is associate with this organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5258,7 +5245,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5310,7 +5300,7 @@
                 ],
                 "summary": "Get a list of policies of the user group whose role is associate with this workspace",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5360,7 +5350,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5412,7 +5405,7 @@
                 ],
                 "summary": "Get a list of policies of the role which is associate with this organization",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5454,7 +5447,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5506,7 +5502,7 @@
                 ],
                 "summary": "Get a list of policies of the role which is associate with this workspace",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5556,7 +5552,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5608,7 +5607,7 @@
                 ],
                 "summary": "Get workspaces of the user whose role is associated to those workspaces",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5650,7 +5649,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5702,7 +5704,7 @@
                 ],
                 "summary": "Get workspaces of the user group whose role is associated to those workspaces",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5744,7 +5746,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5796,7 +5801,7 @@
                 ],
                 "summary": "Get m/OS organization to product account mappings",
                 "parameters": [
-                                        {
+                    {
                         "type": "string",
                         "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored.",
                         "name": "Cookie",
@@ -5830,7 +5835,10 @@
                     },
                     {
                         "type": "string",
-                        "enum": ["after", "before"],
+                        "enum": [
+                            "after",
+                            "before"
+                        ],
                         "description": "Pagination direction.",
                         "name": "direction",
                         "in": "query",
@@ -5968,14 +5976,6 @@
                         "description": "Unprocessable Entity",
                         "schema": {
                             "$ref": "#/definitions/error.response"
-                        },
-                        "examples": {
-                            "application/json": {
-                                "id": 5530007,
-                                "message": "Please reach out to your organization's administrator to request an invitation.",
-                                "type": "error",
-                                "context": ""
-                            }
                         }
                     },
                     "500": {
@@ -6017,14 +6017,6 @@
                         "description": "Unprocessable Entity",
                         "schema": {
                             "$ref": "#/definitions/error.response"
-                        },
-                        "examples": {
-                            "application/json": {
-                                "id": 5530008,
-                                "message": "Kindly connect your social sign-in account to your organization's account beforehand.",
-                                "type": "error",
-                                "context": ""
-                            }
                         }
                     },
                     "500": {
@@ -6337,30 +6329,30 @@
             "type": "object",
             "oneOf": [
                 {
-                  "properties": {
-                    "Cookie": {
-                        "type": "string",
-                        "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored."
-                    }
-                  },
-                  "required": [
-                    "Cookie"
-                  ],
-                  "additionalProperties": false
+                    "properties": {
+                        "Cookie": {
+                            "type": "string",
+                            "description": "Set the Cookie Header. Must include the HTTP Cookie Header which originally was received in the response \n\r\nheader of login session.\n\r\nExample : iam_session_id=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9D\n\r\nWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny\n\r\n3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f== \n\r\n It is ok if more than one cookie are included here as all other cookies will be ignored."
+                        }
+                    },
+                    "required": [
+                        "Cookie"
+                    ],
+                    "additionalProperties": false
                 },
                 {
-                  "properties": {
-                    "X-API-KEY": {
-                        "type": "apiKey",
-                        "description": "Set the API-Key in Header. An API key is a special token that the client needs to provide when making API calls"
-                    }
-                  },
-                  "required": [
-                    "X-API-KEY"
-                  ],
-                  "additionalProperties": false
+                    "properties": {
+                        "X-API-KEY": {
+                            "type": "apiKey",
+                            "description": "Set the API-Key in Header. An API key is a special token that the client needs to provide when making API calls"
+                        }
+                    },
+                    "required": [
+                        "X-API-KEY"
+                    ],
+                    "additionalProperties": false
                 }
-              ]
+            ]
         },
         "resources.list": {
             "type": "object",
@@ -6468,7 +6460,13 @@
                     "description": "The timestamp in UTC indicating the most recent modification time of the user or user group details. For example: \"2014-10-02T15:01:23Z\"."
                 },
                 "invitation_status": {
-                    "enum": ["INVOKED", "PENDING", "ACCEPTED", "REJECTED", "EXPIRED"],
+                    "enum": [
+                        "INVOKED",
+                        "PENDING",
+                        "ACCEPTED",
+                        "REJECTED",
+                        "EXPIRED"
+                    ],
                     "description": "The status of the invitation, indicating whether it is invoked, pending, accepted, rejected or expired. If the user is self signed up then this field will be empty."
                 },
                 "policies": {
@@ -6580,7 +6578,7 @@
                 }
             }
         },
-        "roles":  {
+        "roles": {
             "type": "object",
             "properties": {
                 "id": {
@@ -6642,7 +6640,10 @@
             "properties": {
                 "product": {
                     "type": "string",
-                    "enum": ["Kochava", "SAM"],
+                    "enum": [
+                        "Kochava",
+                        "SAM"
+                    ],
                     "description": "The product name."
                 },
                 "account_id": {
@@ -6706,7 +6707,10 @@
                 },
                 "level": {
                     "type": "string",
-                    "enum": ["ORG", "WS"],
+                    "enum": [
+                        "ORG",
+                        "WS"
+                    ],
                     "description": "The level at which the role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level."
                 },
                 "level_id": {
@@ -6741,7 +6745,7 @@
             "properties": {
                 "is_user": {
                     "type": "boolean",
-                    "description": "The policy is for either a user or a user group. When true, it means the policy is for a user, and when false, it means the policy is for a user group." 
+                    "description": "The policy is for either a user or a user group. When true, it means the policy is for a user, and when false, it means the policy is for a user group."
                 },
                 "user_or_group_id": {
                     "type": "string",
@@ -6752,7 +6756,10 @@
                 },
                 "level": {
                     "type": "string",
-                    "enum": ["ORG", "WS"],
+                    "enum": [
+                        "ORG",
+                        "WS"
+                    ],
                     "minLength": 1,
                     "maxLength": 64,
                     "description": "The level at which the role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level."
@@ -6798,12 +6805,16 @@
                 },
                 "operation": {
                     "type": "string",
-                    "enum": ["0", "1", "2"],
+                    "enum": [
+                        "0",
+                        "1",
+                        "2"
+                    ],
                     "description": "The action to be performed on the policy request. \n\r\n0: Add a new policy (the ID should be empty in this case).\n\r\n1: Update an existing policy (the ID should contain the existing policy ID).\n\r\n2: Delete an existing policy (the ID should contain the existing policy ID)."
                 },
                 "is_user": {
                     "type": "boolean",
-                    "description": "The create or update or delete policy is associated with either a user or a user group. When set to true, it indicates that the policy is for a user. When set to false, it indicates that the policy is for a user group. This field is mandatory when creating a new policy or updating an existing policy, optional incase of deleting existing policy."     
+                    "description": "The create or update or delete policy is associated with either a user or a user group. When set to true, it indicates that the policy is for a user. When set to false, it indicates that the policy is for a user group. This field is mandatory when creating a new policy or updating an existing policy, optional incase of deleting existing policy."
                 },
                 "user_or_group_id": {
                     "type": "string",
@@ -6814,7 +6825,10 @@
                 },
                 "level": {
                     "type": "string",
-                    "enum": ["ORG", "WS"],
+                    "enum": [
+                        "ORG",
+                        "WS"
+                    ],
                     "minLength": 1,
                     "maxLength": 64,
                     "description": "The level at which the role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level. This field is mandatory when creating a new policy or updating an existing policy, optional incase of deleting existing policy."
@@ -6844,7 +6858,7 @@
                 },
                 "is_user": {
                     "type": "boolean",
-                    "description": "The policy is associated with either a user or a user group. When set to true, it indicates that the policy is for a user. When set to false, it indicates that the policy is for a user group."                    
+                    "description": "The policy is associated with either a user or a user group. When set to true, it indicates that the policy is for a user. When set to false, it indicates that the policy is for a user group."
                 },
                 "user_or_group_id": {
                     "type": "string",
@@ -6857,7 +6871,10 @@
                 },
                 "level": {
                     "type": "string",
-                    "enum": ["ORG", "WS"],
+                    "enum": [
+                        "ORG",
+                        "WS"
+                    ],
                     "description": "The level at which the role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level."
                 },
                 "level_id": {
@@ -6890,7 +6907,7 @@
                 },
                 "is_user": {
                     "type": "boolean",
-                    "description": "The policy is for either a user or a user group. When true, it means the policy is for a user, and when false, it means the policy is for a user group." 
+                    "description": "The policy is for either a user or a user group. When true, it means the policy is for a user, and when false, it means the policy is for a user group."
                 },
                 "user_or_group_id": {
                     "type": "string",
@@ -6899,7 +6916,10 @@
                 },
                 "level": {
                     "type": "string",
-                    "enum": ["ORG", "WS"],
+                    "enum": [
+                        "ORG",
+                        "WS"
+                    ],
                     "description": "The level at which the role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level."
                 },
                 "level_id": {
@@ -7031,7 +7051,13 @@
                 },
                 "status": {
                     "type": "string",
-                    "enum": ["INVOKED", "PENDING", "ACCEPTED", "REJECTED", "EXPIRED"],
+                    "enum": [
+                        "INVOKED",
+                        "PENDING",
+                        "ACCEPTED",
+                        "REJECTED",
+                        "EXPIRED"
+                    ],
                     "description": "The status of the invitation, indicating whether it is invoked, pending, accepted, rejected \n\r\nor expired."
                 },
                 "created_time": {
@@ -7097,7 +7123,13 @@
                 },
                 "status": {
                     "type": "string",
-                    "enum": ["INVOKED", "PENDING", "ACCEPTED", "REJECTED", "EXPIRED"],
+                    "enum": [
+                        "INVOKED",
+                        "PENDING",
+                        "ACCEPTED",
+                        "REJECTED",
+                        "EXPIRED"
+                    ],
                     "description": "The status of the invitation, indicating whether it is invoked, pending, accepted, rejected or expired."
                 },
                 "created_time": {
@@ -7126,7 +7158,10 @@
                 },
                 "level": {
                     "type": "string",
-                    "enum": ["ORG", "WS"],
+                    "enum": [
+                        "ORG",
+                        "WS"
+                    ],
                     "description": "The level at which the role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level."
                 },
                 "level_id": {
@@ -7223,7 +7258,10 @@
             "properties": {
                 "action": {
                     "type": "string",
-                    "enum": ["ACCEPT", "REJECT"],
+                    "enum": [
+                        "ACCEPT",
+                        "REJECT"
+                    ],
                     "description": "Accept or reject the organization invitation."
                 }
             }
@@ -7280,7 +7318,10 @@
                 },
                 "level": {
                     "type": "string",
-                    "enum": ["ORG", "WS"],
+                    "enum": [
+                        "ORG",
+                        "WS"
+                    ],
                     "minLength": 1,
                     "maxLength": 64,
                     "description": "The level at which role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level."
@@ -7344,7 +7385,7 @@
                     "type": "string",
                     "description": "Additional information related to error."
                 }
-            }           
+            }
         },
         "user.id.invite": {
             "type": "object",
@@ -7361,7 +7402,7 @@
                         "type": "string",
                         "format": "uuid"
                     }
-                }                
+                }
             }
         },
         "policy.delete.list": {
@@ -7376,7 +7417,7 @@
                         "type": "string",
                         "format": "uuid"
                     }
-                }                
+                }
             }
         },
         "upload.response": {
@@ -7482,19 +7523,6 @@
                 }
             }
         },
-        "resource.type.operations.list": {
-            "type": "object",
-            "properties": {
-                "update_operations": {
-                    "type": "array",
-                    "minItems": 1,
-                    "maxItems": 2,
-                    "items": {
-                        "$ref": "#/definitions/resource.type.operations"
-                    }
-                }
-            }
-        },
         "resource.type.operations": {
             "type": "object",
             "required": [
@@ -7504,8 +7532,11 @@
             "properties": {
                 "action": {
                     "type": "string",
-                    "enum": ["0", "1"],
-                    "description": "The action to be performed on the operations list of the resource type. \n\r\n0: Add a list of operations to existing resource type.\n\r\n1: Delete a list of operations from existing resource type."
+                    "enum": [
+                        "0",
+                        "1"
+                    ],
+                    "description": "The action to be performed on the operations list of the resource type. \n\r\n1: Add a list of operations to existing resource type.\n\r\n0: Delete a list of operations from existing resource type."
                 },
                 "operations": {
                     "type": "array",
@@ -7539,7 +7570,7 @@
                 }
             }
         },
-        "resource.types":  {
+        "resource.types": {
             "type": "object",
             "properties": {
                 "name": {
@@ -7615,7 +7646,7 @@
                 }
             }
         },
-        "role.capability.get":  {
+        "role.capability.get": {
             "type": "object",
             "properties": {
                 "name": {
@@ -7659,7 +7690,7 @@
                 }
             }
         },
-        "resource.capability.get":  {
+        "resource.capability.get": {
             "type": "object",
             "properties": {
                 "name": {
@@ -7676,19 +7707,6 @@
                 }
             }
         },
-        "role.update.capability.list": {
-            "type": "object",
-            "properties": {
-                "update_capabilities": {
-                    "type": "array",
-                    "minItems": 1,
-                    "maxItems": 2,
-                    "items": {
-                        "$ref": "#/definitions/role.update.capability"
-                    }
-                }
-            }
-        },
         "role.update.capability": {
             "type": "object",
             "required": [
@@ -7698,8 +7716,11 @@
             "properties": {
                 "action": {
                     "type": "string",
-                    "enum": ["0", "1"],
-                    "description": "The action to be performed on the capabilities list in role. \n\r\n0: Add a list of capabilities to existing role.\n\r\n1: Delete a list of capabilities from existing role."
+                    "enum": [
+                        "0",
+                        "1"
+                    ],
+                    "description": "The action to be performed on the capabilities list in role. \n\r\n1: Add a list of capabilities to existing role.\n\r\n0: Delete a list of capabilities from existing role."
                 },
                 "capability_list": {
                     "type": "array",
@@ -7731,7 +7752,12 @@
                 },
                 "scope": {
                     "type": "string",
-                    "enum": ["ORG", "WS", "BOTH", "GLOBAL"],
+                    "enum": [
+                        "ORG",
+                        "WS",
+                        "BOTH",
+                        "GLOBAL"
+                    ],
                     "description": "The scope at which the role is associated. For example, \"ORG\" represents organization level, and \"WS\" represents workspace level."
                 },
                 "capability_list": {
