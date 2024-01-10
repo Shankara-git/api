@@ -2380,6 +2380,37 @@
                     }
                 }
             }
+        },
+        "multi_status.response": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/multistatus.error.response"
+            }
+        },
+        "multistatus.error.response": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer",
+                    "description": "HTTP status code."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "Error code. \n\r\nDetails of error code is available at https://docs.google.com/spreadsheets/d/139Vb5s4bqv7HthlJHRpUDyBBm-533YsRvc8cHIf6CT8/edit#gid=0"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error reason. \n\r\nDetails of error reason is available at https://docs.google.com/spreadsheets/d/139Vb5s4bqv7HthlJHRpUDyBBm-533YsRvc8cHIf6CT8/edit#gid=0"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Error type, example: error, warning."
+                },
+                "context": {
+                    "type": "string",
+                    "description": "Additional information related to error."
+                }
+            }
         }
     }
 }
